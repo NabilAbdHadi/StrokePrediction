@@ -1,3 +1,1 @@
-"# StrokePredictionSystem" 
-"# StrokePredictionSystem" 
-"# StrokePrediction" 
+# Stroke Prediction
