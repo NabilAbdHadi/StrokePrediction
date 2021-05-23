@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Radio, RadioGroup, FormLabel, FormControl, FormControlLabel, Typography, Grid, Slider, Container, Button} from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import * as tf from '@tensorflow/tfjs';
+import { loadGraphModel } from '@tensorflow/tfjs';
 
 /*
 categorical data use radio button
@@ -32,8 +33,9 @@ const myStyle = makeStyles({
 
  
 async function predictStroke(userInput) {
-  const model = await tf.loadLayersModel('stroke_prediction_model\\model.json');
-  return model.predict(userInput);
+  const model = await tf.loadLayersModel('https://raw.githubusercontent.com/NabilAbdHadi/StrokePrediction/main/stroke_prediction_model/model.json');
+  const inputTensor = tf.tensor([parseInt(userInput)]);
+  return inputTensor;
 };
  
 function RadioQuestion({id, question, answers}) {
