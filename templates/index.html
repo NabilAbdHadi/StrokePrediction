@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- <link rel="stylesheet" href="./static/style.css"> -->
+        <link rel="stylesheet" href=" {{ url_for('static', filename='style.css') }} ">
+        
+    </head>
+    <body>
+        <div class="main-title">
+        <h1>stroke prediction</h1>
+        <h2>This form created to predict the stroke according to the detail given by user.</h2>
+        </div>
+
+        <br>
+        <hr>
+        <br>
+
+        <form id="UserForm" action="/predict_ml" method="POST">
+            
+            <select class="userInput" name="gender" id="gender">
+                <option value="" disabled selected>1. Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+            <br>
+            <input type="number" class="userInput" name="age" id="age" min="0" max="100" placeholder="2. Age">
+            <br>
+            <select class="userInput" name="hypertension" id="hypertension">
+                <option value="" disabled selected>3. Hypertension</option>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+            <br>
+            <select class="userInput" name="heart_disease" id="heart_disease">
+                <option value="" disabled selected>4. Heart Disease</option>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+            <br>
+            <select class="userInput" name="ever_married" id="ever_married">
+                <option value="" disabled selected>5. Ever Married</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+            <br>
+            <select class="userInput" name="work_type" id="work_type">
+                <option value="" disabled selected>6. Work Type</option>
+                <option value="children">Children</option>
+                <option value="Govt_job">Goverment</option>
+                <option value="Private">Private</option>
+                <option value="Self-employed">Self-employed</option>
+                <option value="Never_worked">Never Worked</option>
+            </select>
+            <br>
+            <select class="userInput" name="Residence_type" id="Residence_type">
+                <option value="" disabled selected>7. Residence Type</option>
+                <option value="Rural">Rural</option>
+                <option value="Urban">Urban</option>
+            </select>
+            <br>
+            <input type="number" class="userInput" name="avg_glucose_level" id="avg_glucose_level" min="0" step="any" placeholder="8. Average Glucose Level">
+            <br>
+            <input type="number" class="userInput" name="bmi" id="bmi" min="0" step="any" placeholder="9. BMI">
+            <br>
+            <select class="userInput" name="smoking_status" id="smoking_status">
+                <option value="" disabled selected>10. Smoking Status</option>
+                <option value="never smoked">Never Smoked</option>
+                <option value="formerly smoked">Formerly Smoked</option>
+                <option value="smokes">Smokes</option>
+                <option value="Unknown">Unknown</option>
+            </select>
+            <br>
+            <button class="btn-predict" type="submit" >Predict</button>
+        </form>
+        <br>
+        <hr>
+        
+        <p class="copyright">Designed by : Nabil Abd Hadi</p>
+        {% if prediction %}
+        <h3>{{ prediction }}</h3>
+        {% endif %}
+      
+    </body>
+    <!-- <script>
+        async function getUserDetails(e) {
+            let myForm = document.forms["UserForm"].elements.length;
+
+            let userDetail = {};
+            for (let i=0; i<myForm-1; i++) {
+                let item = document.getElementById("UserForm").elements[i];
+                
+                userDetail[item.name] = item.value;
+            }
+            console.log(JSON.stringify(userDetail));
+
+
+
+            await fetch("http://127.0.0.1:8000/predict", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                mode: 'cors',
+                credentials: 'same-origin',
+                redirect: 'follow', 
+                referrerPolicy: 'no-referrer', 
+                body: JSON.stringify(userDetail)
+                
+            })
+                .then(response => response.json())
+                .then(data => console.log(data));
+            
+
+            // fetch('http://127.0.0.1:8000/predict')
+            //     .then(response => response.json())
+            //     .then(data => console.log(data));
+            
+        };
+
+        
+        
+    </script> -->
+</html>
