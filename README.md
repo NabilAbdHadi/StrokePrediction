@@ -1,0 +1,2 @@
+# StrokePrediction
+The Stroke Prediction project was the machine learning project that predict whether the user is potentially have stroke or not. Initially, this project purposed to evaluate which machine learning algorithm that able to give the better prediction accuracy and precision. Later, the api and user interface was develop to implemented the predictive model into the single-page web app.
