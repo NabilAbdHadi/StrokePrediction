@@ -76,13 +76,16 @@ function Form({template}) {
     
     return (
         
-        <div className='container'>
+        <div className='container bg-blue-50 lg:py-10 lg:px-20 md:py-5 md:px-10 rounded-lg shadow-lg '>
             <Header title={template.title} description={template.description} />
-            
+           
             <form onSubmit={handleSubmit}>
-                {renderTemplate(template.questions)}    
+                <div className=' py-2 md:py-5 text-sm md:text-md lg:text-lg sm:my-1 md:my-3 lg:my-5 space-y-3'>
+                    {renderTemplate(template.questions)}    
+                </div>
+                
                 <div className='text-center'>
-                    <button type="submit" class="btn btn-lg btn-primary col-2" data-bs-toggle={template.result.modal} data-bs-target="#myModal">{template.result.button}</button>
+                    <button type="submit" class="btn btn-lg btn-primary w-full md:w-2/3 lg:w-1/3 bg-blue-500" data-bs-toggle={template.result.modal} data-bs-target="#myModal">{template.result.button}</button>
                     <PopUp title={prediction !== undefined ? template.result.title: "Error"} description={ prediction !== undefined ? prediction : "Prediction Failed" } modal={template.result.modal} />           
                 </div>    
             </form>

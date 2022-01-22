@@ -30,7 +30,7 @@
         },
         {
             "name":"heart_disease",
-            "placeholder": "State heart Disease Statue",
+            "placeholder": "State Heart Disease Status",
             "type":0,
             "option": {
                 "Yes": 1,
