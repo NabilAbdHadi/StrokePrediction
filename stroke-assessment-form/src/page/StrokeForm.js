@@ -45,7 +45,7 @@ class StrokeForm extends React.Component {
     render(){
         
         return(
-            <div className='bg-blue-400 sm:p-0 md:p-5 lg:p-10'>
+            <div className='bg-blue-400 sm:p-0 md:p-5 lg:p-10 min-h-screen '>
                 <Form template={FormDetails} />
             </div>
         );
